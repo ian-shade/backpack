@@ -1,0 +1,7 @@
+[
+  { "id": "plt-001", "name": "Cherry Picker", "ratePerHour": 45.00 },
+  { "id": "plt-002", "name": "Generator", "ratePerHour": 25.00 },
+  { "id": "plt-003", "name": "Hand Tools Set", "ratePerHour": 10.00 },
+  { "id": "plt-004", "name": "Cable Puller", "ratePerHour": 30.00 },
+  { "id": "plt-005", "name": "Safety Barriers", "ratePerHour": 8.00 }
+]

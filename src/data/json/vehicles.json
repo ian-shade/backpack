@@ -1,0 +1,5 @@
+[
+  { "id": "veh-001", "name": "Transit Van", "dailyRate": 65.00 },
+  { "id": "veh-002", "name": "MEWP Vehicle", "dailyRate": 150.00 },
+  { "id": "veh-003", "name": "Pickup Truck", "dailyRate": 55.00 }
+]

@@ -1,0 +1,83 @@
+/*
+ * Backpack design tokens — derived from Deliverable 3 (UI Sketches).
+ * Single source of truth; every component reads CSS variables.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Brand */
+  --navy: #0E2A47;
+  --navy-2: #1A3D5C;
+  --amber: #E89B3C;
+  --amber-2: #D88820;
+
+  /* Ink */
+  --ink: #11161C;
+  --ink-2: #3B4858;
+  --ink-3: #6B7886;
+
+  /* Surfaces */
+  --paper: #FFFFFF;
+  --surface: #F7F6F2;
+  --surface-2: #FAF9F6;
+  --canvas: #F2F1ED;
+  --rule: #E5E8EC;
+  --rule-2: #EEF1F4;
+
+  /* Tints */
+  --tint-amber: #FFF4E2;
+  --tint-navy: #E8EEF4;
+
+  /* Semantic */
+  --good: #2E7D5B;
+  --bad: #B23A3A;
+  --good-bg: #DDF1E6;
+  --warn-bg: #FFE9D6;
+  --warn-fg: #A45A12;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgba(15, 30, 50, 0.06), 0 1px 1px rgba(15, 30, 50, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 30, 50, 0.08), 0 2px 6px rgba(15, 30, 50, 0.04);
+  --shadow-lg: 0 24px 48px rgba(15, 30, 50, 0.12), 0 8px 16px rgba(15, 30, 50, 0.06);
+  --shadow-amber: 0 10px 24px rgba(232, 155, 60, 0.45), 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  /* Type */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter Tight', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--canvas);
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}

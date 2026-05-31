@@ -1,0 +1,10 @@
+{
+  "roles": [
+    { "id": "role-op", "name": "Operative", "hourlyRate": 28.00 },
+    { "id": "role-sop", "name": "Senior Operative", "hourlyRate": 35.00 },
+    { "id": "role-sup", "name": "Supervisor", "hourlyRate": 42.00 }
+  ],
+  "operatives": [
+    { "id": "op-001", "initials": "DH", "fullName": "Daniel Holloway", "roleId": "role-op" }
+  ]
+}

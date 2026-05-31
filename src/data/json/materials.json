@@ -1,0 +1,7 @@
+[
+  { "id": "mat-001", "name": "LED Lantern", "unitCost": 85.00, "unit": "each" },
+  { "id": "mat-002", "name": "Column Bracket", "unitCost": 35.00, "unit": "each" },
+  { "id": "mat-003", "name": "Cable", "unitCost": 3.50, "unit": "metre" },
+  { "id": "mat-004", "name": "Fuse Carrier", "unitCost": 12.00, "unit": "each" },
+  { "id": "mat-005", "name": "Photocell", "unitCost": 18.00, "unit": "each" }
+]

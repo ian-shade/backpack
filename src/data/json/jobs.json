@@ -1,0 +1,44 @@
+[
+  {
+    "id": "JOB-2026-04812",
+    "title": "Column 22 — LED replacement",
+    "location": "Bury St Edmunds",
+    "road": "A14",
+    "status": "live",
+    "arrivedAt": "08:14",
+    "vehiclesCount": 2,
+    "durationMins": 102
+  },
+  {
+    "id": "JOB-2026-04813",
+    "title": "Photocell fault diagnosis",
+    "location": "Mildenhall",
+    "road": "High St",
+    "status": "queued",
+    "etaTime": "11:30",
+    "vehiclesCount": 1
+  },
+  {
+    "id": "JOB-2026-04814",
+    "title": "Cable test & certify",
+    "location": "Ipswich",
+    "road": "Bramford Rd",
+    "status": "done"
+  },
+  {
+    "id": "JOB-2026-04815",
+    "title": "Lantern replacement — bay 4",
+    "location": "Stowmarket",
+    "road": "B1115",
+    "status": "queued",
+    "etaTime": "14:00"
+  },
+  {
+    "id": "JOB-2026-04816",
+    "title": "Fuse carrier renewal",
+    "location": "Newmarket",
+    "road": "A14",
+    "status": "queued",
+    "etaTime": "15:45"
+  }
+]
