@@ -1,0 +1,1998 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Backpack — UI Sketches</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0E2A47;
+  --navy-2: #1A3D5C;
+  --amber: #E89B3C;
+  --amber-2: #D88820;
+  --ink: #11161C;
+  --ink-2: #3B4858;
+  --ink-3: #6B7886;
+  --rule: #E5E8EC;
+  --rule-2: #EEF1F4;
+  --canvas: #F2F1ED;     /* warm Figma canvas */
+  --paper: #FFFFFF;
+  --surface: #F7F6F2;
+  --surface-2: #FAF9F6;
+  --tint-amber: #FFF4E2;
+  --tint-navy: #E8EEF4;
+  --good: #2E7D5B;
+  --bad:  #B23A3A;
+  --shadow-sm: 0 1px 2px rgba(15,30,50,0.06), 0 1px 1px rgba(15,30,50,0.04);
+  --shadow-md: 0 8px 24px rgba(15,30,50,0.08), 0 2px 6px rgba(15,30,50,0.04);
+  --shadow-lg: 0 24px 48px rgba(15,30,50,0.12), 0 8px 16px rgba(15,30,50,0.06);
+}
+* { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+html, body {
+  margin:0; padding:0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  font-feature-settings: "ss01","cv11";
+}
+
+/* ===================== ARTBOARD ===================== */
+.artboard {
+  width: 1680px;
+  margin: 0 auto;
+  padding: 56px 56px 80px 56px;
+}
+
+/* Deliverable header strip — matches the look of the diagrams */
+.doc-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 28px;
+  margin-bottom: 56px;
+}
+.doc-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 42px;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1.05;
+}
+.doc-sub {
+  margin-top: 8px;
+  color: var(--ink-2);
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  max-width: 720px;
+}
+.doc-meta {
+  text-align: right;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  line-height: 1.7;
+}
+.doc-meta b { color: var(--navy); font-weight: 600; }
+
+/* Section heading between rows */
+.section-band {
+  display: flex; align-items: baseline; gap: 16px;
+  margin: 64px 0 28px 0;
+}
+.section-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--amber-2);
+  letter-spacing: 0.12em;
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+.section-rule { flex: 1; height: 1px; background: var(--rule); }
+.section-note { font-size: 12px; color: var(--ink-3); letter-spacing: 0.04em; }
+
+/* Frame wrapper for each screen */
+.row { display: grid; gap: 56px; }
+.row.mobile { grid-template-columns: repeat(4, 1fr); }
+.row.web    { grid-template-columns: repeat(2, 1fr); }
+
+.frame-wrap { display: flex; flex-direction: column; align-items: center; }
+.frame-label {
+  align-self: flex-start;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.frame-label b { color: var(--navy); font-weight: 600; }
+.frame-caption {
+  align-self: flex-start;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.5;
+  max-width: 360px;
+}
+.frame-caption .tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 2px 6px;
+  background: var(--tint-amber);
+  color: var(--amber-2);
+  border-radius: 4px;
+  margin-right: 4px;
+  letter-spacing: 0.06em;
+}
+
+/* ===================== MOBILE DEVICE FRAME ===================== */
+.device {
+  width: 360px;
+  height: 760px;
+  border-radius: 48px;
+  background: #0A0A0C;
+  padding: 12px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+.device::before { /* side button */
+  content: ""; position: absolute; left: -2px; top: 130px;
+  width: 3px; height: 60px; background: #0A0A0C; border-radius: 2px;
+}
+.device::after { /* power */
+  content: ""; position: absolute; right: -2px; top: 160px;
+  width: 3px; height: 90px; background: #0A0A0C; border-radius: 2px;
+}
+.screen {
+  width: 100%; height: 100%;
+  background: var(--paper);
+  border-radius: 36px;
+  overflow: hidden;
+  position: relative;
+  font-size: 14px;
+}
+.statusbar {
+  height: 44px;
+  display:flex; align-items:center; justify-content: space-between;
+  padding: 0 28px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  position: relative;
+}
+.statusbar .notch {
+  position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 96px; height: 28px; background: #0A0A0C; border-radius: 16px;
+}
+.statusbar .icons { display: flex; gap: 6px; align-items: center; }
+.statusbar .icons svg { display: block; }
+
+/* App content */
+.app { padding: 8px 20px 0 20px; height: calc(100% - 44px); display: flex; flex-direction: column; }
+.app.scroll { overflow: hidden; }
+
+/* Bottom home indicator */
+.home-indicator {
+  position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+  width: 120px; height: 4px; background: #0A0A0C; opacity: 0.35; border-radius: 2px;
+}
+
+/* Annotation pins on mobile screens */
+.pin {
+  position: absolute;
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--navy);
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  padding: 3px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  z-index: 5;
+}
+.pin.amber { background: var(--amber); color: var(--navy); }
+.pin::before {
+  content: ""; width: 5px; height: 5px; background: currentColor; border-radius: 50%;
+}
+
+/* ===================== LOGIN SCREEN ===================== */
+.login {
+  height: 100%;
+  background: linear-gradient(180deg, #0E2A47 0%, #0E2A47 55%, #FFFFFF 55%, #FFFFFF 100%);
+  display: flex; flex-direction: column;
+}
+.login .brand-top {
+  padding: 56px 28px 0 28px;
+  color: #fff;
+}
+.login .brand-mark {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.login .brand-mark .glyph {
+  width: 32px; height: 32px;
+  background: var(--amber);
+  border-radius: 9px;
+  display: grid; place-items: center;
+  color: var(--navy);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px; font-weight: 700;
+}
+.login .welcome {
+  margin-top: 38px;
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.login .welcome em { color: var(--amber); font-style: normal; }
+.login .sub {
+  margin-top: 10px; font-size: 13px; color: #BCC8D6; max-width: 240px; line-height: 1.5;
+}
+.login .card {
+  margin: 60px 20px 0 20px;
+  background: #fff;
+  border-radius: 22px;
+  padding: 22px 20px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+.login .field {
+  margin-bottom: 14px;
+}
+.login label {
+  display: block; font-size: 11px; letter-spacing: 0.08em;
+  color: var(--ink-3); text-transform: uppercase; margin-bottom: 6px; font-weight: 600;
+}
+.login .input {
+  width: 100%; height: 48px;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 0 14px;
+  font-size: 15px; color: var(--ink);
+  display: flex; align-items: center;
+  background: var(--surface-2);
+}
+.login .input.focus {
+  border: 1.5px solid var(--navy);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(14,42,71,0.06);
+}
+.login .input .dot { width: 6px; height: 6px; background: var(--ink); border-radius: 50%; margin-right: 2px; }
+.login .row-link { display: flex; justify-content: flex-end; font-size: 12px; color: var(--navy); font-weight: 600; margin-top: -6px; }
+.login .btn {
+  margin-top: 16px;
+  height: 52px;
+  width: 100%;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: 15px;
+  letter-spacing: 0.01em;
+}
+.login .btn .arrow { margin-left: 8px; }
+.login .biometric {
+  margin-top: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-size: 12.5px; color: var(--ink-2);
+}
+.login .biometric .fp {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--tint-navy);
+  display: grid; place-items: center;
+  color: var(--navy);
+}
+.login .footer {
+  margin-top: auto; padding: 24px;
+  text-align: center; font-size: 11px; color: var(--ink-3);
+}
+
+/* ===================== JOB DASHBOARD ===================== */
+.dash-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 0 14px 0;
+}
+.dash-top .hello {
+  font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em;
+}
+.dash-top .name {
+  font-family: 'Fraunces', serif;
+  font-size: 22px; font-weight: 700; color: var(--navy);
+  letter-spacing: -0.01em;
+}
+.avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--navy); color: #fff;
+  display: grid; place-items: center;
+  font-weight: 600; font-size: 13px; letter-spacing: 0.02em;
+  border: 2px solid #fff;
+  box-shadow: var(--shadow-sm);
+}
+.scan-card {
+  margin-top: 4px;
+  background: var(--navy);
+  border-radius: 18px;
+  padding: 16px 18px;
+  color: #fff;
+  position: relative; overflow: hidden;
+}
+.scan-card::after {
+  content: "";
+  position: absolute; right: -30px; top: -30px;
+  width: 140px; height: 140px;
+  background: radial-gradient(circle, var(--amber) 0%, transparent 70%);
+  opacity: 0.35;
+}
+.scan-card .lbl {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.65;
+}
+.scan-card .ti {
+  font-family: 'Fraunces', serif;
+  font-size: 18px; font-weight: 700; margin-top: 4px;
+}
+.scan-card .scan-btn {
+  position: relative; z-index: 2;
+  margin-top: 14px;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--amber); color: var(--navy);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600; font-size: 13px;
+  width: fit-content;
+}
+.scan-card .scan-btn .ic {
+  width: 18px; height: 18px;
+  border: 2px solid var(--navy); border-radius: 4px;
+  position: relative;
+}
+.scan-card .scan-btn .ic::before, .scan-card .scan-btn .ic::after {
+  content: ""; position: absolute; background: var(--navy);
+}
+.scan-card .scan-btn .ic::before { left: 3px; right: 3px; top: 7px; height: 1.5px; }
+.scan-card .scan-btn .ic::after { top: 3px; bottom: 3px; left: 7px; width: 1.5px; }
+
+.section-h {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 18px 0 10px 0;
+}
+.section-h .t {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--ink-3); text-transform: uppercase;
+}
+.section-h .more { font-size: 11px; color: var(--navy); font-weight: 600; }
+
+.chips { display: flex; gap: 6px; }
+.chip {
+  font-size: 11px; padding: 5px 10px; border-radius: 999px;
+  background: var(--surface); color: var(--ink-2);
+  font-weight: 500;
+}
+.chip.active { background: var(--navy); color: #fff; }
+
+.job-card {
+  background: #fff; border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 14px 14px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+.job-card .head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.job-card .ref {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--ink-3); letter-spacing: 0.04em;
+}
+.job-card .status {
+  font-size: 10px; padding: 2px 7px; border-radius: 999px;
+  font-weight: 600;
+}
+.job-card .status.live { background: #DDF1E6; color: var(--good); }
+.job-card .status.queue { background: #FFE9D6; color: #A45A12; }
+.job-card .status.done { background: #E8EEF4; color: var(--navy); }
+.job-card .ti {
+  font-size: 14.5px; font-weight: 600; color: var(--navy); margin-top: 4px;
+}
+.job-card .loc {
+  font-size: 12px; color: var(--ink-2); margin-top: 4px;
+  display: flex; align-items: center; gap: 4px;
+}
+.job-card .loc .pin-dot {
+  width: 4px; height: 4px; border-radius: 50%; background: var(--amber);
+}
+.job-card .meta {
+  display: flex; gap: 10px; margin-top: 10px;
+  font-size: 11px; color: var(--ink-3);
+}
+.job-card .meta b { color: var(--navy); font-weight: 600; }
+
+.tabbar {
+  position: absolute; bottom: 16px; left: 16px; right: 16px;
+  height: 64px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(15,30,50,0.10), 0 1px 0 rgba(15,30,50,0.04);
+  border: 1px solid var(--rule);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+}
+.tab {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  font-size: 10px; color: var(--ink-3); font-weight: 500;
+}
+.tab.active { color: var(--navy); }
+.tab .ic {
+  width: 22px; height: 22px;
+  display: grid; place-items: center;
+}
+.tab.active .ic { color: var(--amber-2); }
+
+.fab {
+  position: absolute; bottom: 88px; right: 18px;
+  width: 56px; height: 56px;
+  border-radius: 18px;
+  background: var(--amber);
+  display: grid; place-items: center;
+  box-shadow: 0 10px 24px rgba(232,155,60,0.45), 0 2px 4px rgba(0,0,0,0.05);
+  color: var(--navy);
+}
+
+/* ===================== JOB DETAIL FORM ===================== */
+.form-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 4px 0 12px 0;
+}
+.form-top .back {
+  width: 36px; height: 36px; border-radius: 12px;
+  background: var(--surface); display: grid; place-items: center;
+  color: var(--navy);
+}
+.form-top .title {
+  font-family: 'Fraunces', serif;
+  font-size: 17px; font-weight: 700; color: var(--navy);
+}
+.form-top .save {
+  font-size: 12px; color: var(--navy); font-weight: 600;
+}
+.progress-row {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 16px;
+}
+.progress-row .seg {
+  flex: 1; height: 4px; border-radius: 2px;
+  background: var(--rule);
+}
+.progress-row .seg.done { background: var(--good); }
+.progress-row .seg.now { background: var(--amber); }
+.progress-row .pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--ink-3); letter-spacing: 0.05em;
+}
+.job-banner {
+  background: var(--tint-navy);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.job-banner .lbl { font-size: 10px; letter-spacing: 0.1em; color: var(--ink-3); font-weight: 600; text-transform: uppercase; }
+.job-banner .ref-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; color: var(--navy); font-weight: 600;
+  margin-top: 2px;
+}
+.job-banner .ic {
+  width: 32px; height: 32px; border-radius: 10px;
+  background: #fff; color: var(--navy);
+  display: grid; place-items: center;
+  box-shadow: var(--shadow-sm);
+}
+.field-group { margin-bottom: 14px; }
+.field-label {
+  font-size: 11px; letter-spacing: 0.08em; color: var(--ink-3);
+  font-weight: 600; text-transform: uppercase; margin-bottom: 6px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.field-label .req-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: var(--amber-2); letter-spacing: 0.05em;
+}
+.time-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.time-pill {
+  background: var(--surface); border-radius: 14px;
+  padding: 10px 12px;
+}
+.time-pill .ttl { font-size: 10px; color: var(--ink-3); letter-spacing: 0.05em; }
+.time-pill .val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px; font-weight: 600; color: var(--navy);
+  margin-top: 2px;
+}
+.time-pill .day { font-size: 10px; color: var(--ink-3); margin-top: 1px; }
+.time-pill.amber {
+  background: var(--tint-amber);
+  border: 1.5px dashed var(--amber);
+}
+.time-pill.amber .val { color: var(--amber-2); }
+
+.selector-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.selector-card .nm { font-size: 14px; color: var(--navy); font-weight: 500; }
+.selector-card .rate {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--ink-3);
+}
+.selector-card .right {
+  display: flex; align-items: center; gap: 8px;
+}
+.qty-stepper {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface); border-radius: 999px;
+  padding: 3px 4px;
+}
+.qty-stepper .b {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: #fff; color: var(--navy);
+  display: grid; place-items: center;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+.qty-stepper .v {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; font-weight: 600;
+  min-width: 22px; text-align: center;
+}
+.add-row {
+  background: var(--surface); border-radius: 14px;
+  padding: 12px; text-align: center;
+  font-size: 13px; color: var(--navy); font-weight: 600;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  border: 1.5px dashed var(--rule);
+}
+.add-row .pl {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--navy); color: #fff;
+  display: grid; place-items: center; font-size: 12px;
+}
+
+/* Cost summary at bottom */
+.cost-sum {
+  position: absolute; bottom: 18px; left: 0; right: 0;
+  background: #fff;
+  border-top: 1px solid var(--rule);
+  padding: 12px 20px 14px 20px;
+  box-shadow: 0 -10px 24px rgba(15,30,50,0.06);
+}
+.cost-sum .row {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;
+}
+.cost-sum .lab { font-size: 11px; color: var(--ink-3); letter-spacing: 0.04em; }
+.cost-sum .val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: var(--ink-2);
+}
+.cost-sum .total {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-top: 8px; margin-top: 6px;
+  border-top: 1px dashed var(--rule);
+}
+.cost-sum .total .lab { font-size: 13px; color: var(--navy); font-weight: 600; }
+.cost-sum .total .val {
+  font-family: 'Fraunces', serif;
+  font-size: 24px; font-weight: 700; color: var(--navy);
+}
+.cost-sum .submit {
+  margin-top: 10px;
+  background: var(--navy); color: #fff;
+  height: 46px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: 14px;
+  gap: 8px;
+}
+
+/* Scrollable content area inside form */
+.form-scroll {
+  flex: 1;
+  overflow: hidden;
+  padding-right: 2px;
+  padding-bottom: 8px;
+}
+
+/* ===================== CONFIRMATION SCREEN ===================== */
+.confirm {
+  height: 100%;
+  background: linear-gradient(180deg, #FFFBEF 0%, #FFFFFF 60%);
+  display: flex; flex-direction: column; align-items: center;
+  padding: 60px 24px 24px;
+  text-align: center;
+}
+.tick-wrap {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background: var(--amber);
+  display: grid; place-items: center;
+  position: relative;
+  box-shadow: 0 16px 36px rgba(232,155,60,0.4);
+  margin-top: 20px;
+}
+.tick-wrap::after {
+  content: "";
+  position: absolute; inset: -10px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--amber);
+  opacity: 0.5;
+}
+.confirm h1 {
+  margin-top: 28px;
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.confirm .em { color: var(--amber); font-style: normal; }
+.confirm .lede {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.5;
+  max-width: 280px;
+}
+.confirm .receipt {
+  margin-top: 26px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  padding: 18px;
+  text-align: left;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+.confirm .receipt::before, .confirm .receipt::after {
+  content: "";
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 14px; height: 14px;
+  background: var(--canvas);
+  border-radius: 50%;
+}
+.confirm .receipt::before { left: -7px; }
+.confirm .receipt::after { right: -7px; }
+
+.confirm .receipt .r-h {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 12px; margin-bottom: 12px;
+}
+.confirm .receipt .r-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: var(--ink-3);
+}
+.confirm .receipt .r-ref {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px; color: var(--navy); font-weight: 600;
+}
+.confirm .receipt .r-line {
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--ink-2);
+  padding: 4px 0;
+}
+.confirm .receipt .r-line .v {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--navy); font-weight: 500;
+}
+.confirm .receipt .r-total {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-top: 1px dashed var(--rule); margin-top: 8px; padding-top: 10px;
+}
+.confirm .receipt .r-total .l { font-size: 13px; color: var(--navy); font-weight: 600; }
+.confirm .receipt .r-total .v {
+  font-family: 'Fraunces', serif;
+  font-size: 22px; font-weight: 700; color: var(--navy);
+}
+.confirm .send-state {
+  margin-top: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 12px; color: var(--good); font-weight: 600;
+}
+.confirm .send-state .dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--good);
+  box-shadow: 0 0 0 4px rgba(46,125,91,0.15);
+}
+.confirm .actions {
+  margin-top: auto;
+  width: 100%;
+  display: grid; gap: 8px;
+  padding-bottom: 16px;
+}
+.confirm .actions .primary {
+  height: 52px; background: var(--navy); color: #fff;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: 15px;
+}
+.confirm .actions .secondary {
+  height: 48px; background: var(--surface); color: var(--navy);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: 14px;
+}
+
+/* ===================== WEB DASHBOARD ===================== */
+.web-frame {
+  width: 720px;     /* scaled */
+  /* Actual content area is built at 1440 logical width, but we render scaled. */
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.web-frame .chrome {
+  height: 36px;
+  background: #ECEEF2;
+  display: flex; align-items: center;
+  padding: 0 14px;
+  gap: 8px;
+  border-bottom: 1px solid #DCE0E6;
+}
+.web-frame .chrome .dots { display: flex; gap: 6px; }
+.web-frame .chrome .dot {
+  width: 11px; height: 11px; border-radius: 50%;
+  background: #D6DAE0;
+}
+.web-frame .chrome .dot:nth-child(1) { background: #F56C5A; }
+.web-frame .chrome .dot:nth-child(2) { background: #F5C040; }
+.web-frame .chrome .dot:nth-child(3) { background: #5BBE6E; }
+.web-frame .chrome .url {
+  margin-left: 14px;
+  background: #fff;
+  height: 22px;
+  border-radius: 6px;
+  flex: 1;
+  display: flex; align-items: center; padding: 0 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--ink-3);
+}
+.web-frame .chrome .url .lock {
+  width: 10px; height: 10px; margin-right: 6px;
+  border: 1.5px solid var(--ink-3); border-radius: 2px;
+  position: relative;
+}
+.web-content {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  min-height: 580px;
+  font-size: 12px;
+}
+.web-side {
+  background: var(--navy);
+  color: #fff;
+  padding: 18px 14px;
+  display: flex; flex-direction: column;
+}
+.web-side .brand {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Fraunces', serif;
+  font-size: 18px; font-weight: 700;
+  margin-bottom: 24px;
+}
+.web-side .brand .glyph {
+  width: 26px; height: 26px;
+  background: var(--amber);
+  border-radius: 7px;
+  display: grid; place-items: center;
+  color: var(--navy);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; font-weight: 700;
+}
+.web-side .nav-cat {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: #6F8298;
+  margin: 14px 0 6px 8px;
+  text-transform: uppercase;
+}
+.web-side .nav {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  color: #C2CFDD;
+  margin-bottom: 2px;
+}
+.web-side .nav .nic {
+  width: 14px; height: 14px;
+  border-radius: 3px;
+  background: #2A4566;
+  display: grid; place-items: center;
+  font-size: 9px;
+}
+.web-side .nav.active {
+  background: rgba(232,155,60,0.12);
+  color: #fff;
+  border-left: 2px solid var(--amber);
+  padding-left: 8px;
+}
+.web-side .nav.active .nic { background: var(--amber); color: var(--navy); }
+.web-side .user-card {
+  margin-top: auto;
+  background: rgba(255,255,255,0.04);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.web-side .user-card .av {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--amber); color: var(--navy);
+  display: grid; place-items: center;
+  font-size: 11px; font-weight: 700;
+}
+.web-side .user-card .nm { font-size: 11px; font-weight: 600; }
+.web-side .user-card .rl { font-size: 9px; color: #8DA1B8; }
+
+.web-main {
+  padding: 20px 22px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.web-main .ph {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 16px;
+}
+.web-main h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px; font-weight: 700; color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.web-main .crumbs { font-size: 10px; color: var(--ink-3); letter-spacing: 0.04em; margin-bottom: 4px; }
+.web-main .header-actions { display: flex; gap: 6px; }
+.web-main .header-actions .ba {
+  height: 30px; padding: 0 12px;
+  border-radius: 8px;
+  background: #fff; border: 1px solid var(--rule);
+  font-size: 11px; color: var(--navy); font-weight: 500;
+  display: flex; align-items: center; gap: 5px;
+}
+.web-main .header-actions .ba.primary { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+/* KPI tiles */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+.kpi {
+  background: #fff; border: 1px solid var(--rule);
+  border-radius: 12px; padding: 12px 14px;
+  position: relative;
+}
+.kpi .lbl { font-size: 9px; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.kpi .val { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-top: 4px; letter-spacing: -0.01em; }
+.kpi .delta { font-size: 9px; margin-top: 4px; font-weight: 600; }
+.kpi .delta.up { color: var(--good); }
+.kpi .delta.dn { color: var(--bad); }
+.kpi .spark {
+  position: absolute; right: 10px; bottom: 10px;
+  width: 50px; height: 22px;
+}
+
+/* Filters bar */
+.filter-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px;
+}
+.filter-bar .left { display: flex; gap: 6px; }
+.fpill {
+  height: 26px; padding: 0 10px;
+  border-radius: 999px;
+  background: #fff; border: 1px solid var(--rule);
+  font-size: 10px; color: var(--ink-2);
+  display: flex; align-items: center; gap: 5px;
+}
+.fpill.amber { background: var(--tint-amber); border-color: #F0D2A6; color: var(--amber-2); font-weight: 600; }
+.fpill .x { color: var(--ink-3); }
+.search {
+  height: 26px; padding: 0 10px;
+  border-radius: 6px;
+  background: #fff; border: 1px solid var(--rule);
+  font-size: 10px; color: var(--ink-3);
+  width: 160px;
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* Table */
+.tbl {
+  background: #fff; border: 1px solid var(--rule);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.tbl-head {
+  display: grid;
+  grid-template-columns: 70px 1.4fr 1fr 0.8fr 0.7fr 0.8fr 0.6fr;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule);
+  font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-3); font-weight: 600;
+}
+.tbl-row {
+  display: grid;
+  grid-template-columns: 70px 1.4fr 1fr 0.8fr 0.7fr 0.8fr 0.6fr;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--rule-2);
+  font-size: 11px; color: var(--ink);
+  align-items: center;
+}
+.tbl-row:last-child { border-bottom: none; }
+.tbl-row .ref { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink-2); }
+.tbl-row .op { display: flex; align-items: center; gap: 6px; }
+.tbl-row .op .av {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--tint-navy); color: var(--navy);
+  display: grid; place-items: center;
+  font-size: 9px; font-weight: 700;
+}
+.tbl-row .loc { color: var(--ink-2); font-size: 11px; }
+.tbl-row .when { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink-3); }
+.tbl-row .cost {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; font-weight: 600; color: var(--navy);
+}
+.tbl-row .st {
+  font-size: 9px; padding: 2px 7px; border-radius: 999px; font-weight: 600;
+  text-align: center; width: fit-content; letter-spacing: 0.04em;
+}
+.tbl-row .st.appr { background: #DDF1E6; color: var(--good); }
+.tbl-row .st.pend { background: #FFE9D6; color: #A45A12; }
+.tbl-row .st.flag { background: #FBD9D9; color: var(--bad); }
+.tbl-row .st.draft { background: var(--surface); color: var(--ink-3); }
+.tbl-row.sel { background: var(--tint-amber); }
+.tbl-row .more {
+  width: 18px; height: 18px; border-radius: 4px;
+  display: grid; place-items: center;
+  color: var(--ink-3); margin-left: auto;
+}
+
+/* ===================== WEB DETAIL ===================== */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 14px;
+}
+.detail-card {
+  background: #fff; border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 16px;
+}
+.detail-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 10px; letter-spacing: 0.1em; color: var(--ink-3);
+  font-weight: 700; text-transform: uppercase;
+  display: flex; justify-content: space-between;
+}
+.detail-card h3 .rid {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: var(--amber-2); letter-spacing: 0.05em;
+}
+
+.dc-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--rule-2);
+  font-size: 11px;
+}
+.dc-row:last-child { border-bottom: none; }
+.dc-row .l { color: var(--ink-2); }
+.dc-row .v {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500; color: var(--navy);
+}
+.dc-section-title {
+  font-size: 10px; font-weight: 700; color: var(--navy);
+  margin: 10px 0 4px 0;
+  display: flex; align-items: center; gap: 6px;
+}
+.dc-section-title .pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; padding: 1px 6px;
+  background: var(--tint-amber);
+  color: var(--amber-2); border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+.itemized { font-size: 11px; }
+.itemized .line {
+  display: grid; grid-template-columns: 1.4fr 0.7fr 0.8fr 0.7fr;
+  padding: 5px 0;
+  gap: 4px;
+  border-bottom: 1px solid var(--rule-2);
+  align-items: baseline;
+}
+.itemized .line:last-child { border-bottom: none; }
+.itemized .nm { color: var(--ink); }
+.itemized .qty, .itemized .rate, .itemized .sub {
+  font-family: 'JetBrains Mono', monospace;
+  text-align: right; color: var(--ink-2);
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+.itemized .sub { font-weight: 600; color: var(--navy); }
+.subtotal-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 8px 0 6px 0;
+  margin-top: 4px;
+  border-top: 1px solid var(--rule);
+  font-size: 11px;
+}
+.subtotal-row .l { color: var(--ink-2); font-weight: 500; }
+.subtotal-row .v {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700; color: var(--navy);
+}
+
+/* Right column */
+.detail-aside { display: flex; flex-direction: column; gap: 14px; }
+.cost-hero {
+  background: var(--navy); color: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  position: relative; overflow: hidden;
+}
+.cost-hero::after {
+  content: "";
+  position: absolute; right: -40px; bottom: -40px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, var(--amber) 0%, transparent 70%);
+  opacity: 0.25;
+}
+.cost-hero .lbl {
+  font-size: 9px; letter-spacing: 0.1em; opacity: 0.7; text-transform: uppercase;
+}
+.cost-hero .v {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 4px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.cost-hero .sm { font-size: 10px; opacity: 0.7; margin-top: 8px; }
+.cost-hero .ratecard {
+  margin-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.04em;
+  opacity: 0.75;
+  border-top: 1px dashed rgba(255,255,255,0.2);
+  padding-top: 8px;
+  display: flex; justify-content: space-between;
+}
+
+/* Cost breakdown chart */
+.bdown-chart {
+  display: flex; height: 8px; border-radius: 6px; overflow: hidden;
+  margin: 12px 0 10px 0;
+}
+.bdown-chart .seg { height: 100%; }
+.bdown-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+.bdown-legend .item {
+  font-size: 10px;
+  display: flex; align-items: center; gap: 6px;
+  min-width: 0;
+}
+.bdown-legend .sw { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.bdown-legend .nm { color: var(--ink-2); white-space: nowrap; }
+.bdown-legend .vl {
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; color: var(--navy); font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* Action stack */
+.action-stack { display: grid; gap: 6px; }
+.action-stack .ba {
+  height: 36px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px; font-size: 12px; font-weight: 600;
+}
+.action-stack .ba.primary { background: var(--amber); color: var(--navy); }
+.action-stack .ba.secondary { background: #fff; color: var(--navy); border: 1px solid var(--rule); }
+.action-stack .ba.danger { background: #fff; color: var(--bad); border: 1px solid #F2C7C7; }
+
+.audit {
+  background: #fff; border: 1px solid var(--rule);
+  border-radius: 12px; padding: 14px;
+  font-size: 10.5px;
+}
+.audit h3 {
+  margin: 0 0 8px 0;
+  font-size: 10px; letter-spacing: 0.1em; color: var(--ink-3);
+  font-weight: 700; text-transform: uppercase;
+}
+.audit .ev {
+  display: flex; gap: 10px; padding: 5px 0;
+  position: relative;
+}
+.audit .ev .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--amber); margin-top: 5px; flex-shrink: 0;
+}
+.audit .ev .nm { font-weight: 600; color: var(--navy); }
+.audit .ev .ts {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: var(--ink-3);
+  margin-left: auto;
+}
+.audit .ev .desc { color: var(--ink-2); font-size: 10px; margin-top: 1px; }
+
+/* Photo strip */
+.photos { display: flex; gap: 6px; margin-top: 8px; }
+.photos .ph {
+  flex: 1; aspect-ratio: 1;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2C3E50 0%, #4A5F7B 100%);
+  position: relative; overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.photos .ph::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,0.15) 0%, transparent 50%),
+    linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%);
+}
+.photos .ph.alt { background: linear-gradient(135deg, #6B5B45 0%, #8A7355 100%); }
+.photos .ph.alt2 { background: linear-gradient(135deg, #3D5468 0%, #5B7A95 100%); }
+
+/* Footer of page */
+.foot {
+  margin-top: 64px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; color: var(--ink-3); letter-spacing: 0.04em;
+}
+.foot .legend { display: flex; gap: 20px; flex-wrap: wrap; }
+.foot .lg { display: flex; align-items: center; gap: 6px; }
+.foot .lg .sq { width: 12px; height: 12px; border-radius: 3px; }
+.foot .lg .sq.navy { background: var(--navy); }
+.foot .lg .sq.amber { background: var(--amber); }
+.foot .lg .sq.surf { background: var(--surface); border: 1px solid var(--rule); }
+.foot .lg .sq.tint { background: var(--tint-amber); border: 1px solid #F0D2A6; }
+.foot .ver { font-family: 'JetBrains Mono', monospace; }
+</style>
+</head>
+<body>
+<div class="artboard">
+
+<!-- ============ DOC HEADER ============ -->
+<div class="doc-header">
+  <div>
+    <div class="doc-title">UI Sketches & Hi-Fi Mockups</div>
+    <div class="doc-sub">
+      Six screens designed to a Material 3 / iOS-native sensibility, covering the operative's
+      mobile capture flow and the Quantity Surveyor's web dashboard. Each frame is annotated
+      with the requirement IDs from Deliverable 1 so every interaction traces back to a spec.
+    </div>
+  </div>
+  <div class="doc-meta">
+    <div>J McCann &amp; Co Ltd · KTP Associate Task</div>
+    <div><b>Deliverable 3</b></div>
+    <div>Version 1.0 · 26 May 2026</div>
+  </div>
+</div>
+
+<!-- ============ MOBILE ROW ============ -->
+<div class="section-band">
+  <div class="section-num">01</div>
+  <div class="section-title">Operative · Mobile App</div>
+  <div class="section-rule"></div>
+  <div class="section-note">390 × 844pt · iOS · Flutter target</div>
+</div>
+
+<div class="row mobile">
+
+  <!-- ============ SCREEN 1 · LOGIN ============ -->
+  <div class="frame-wrap">
+    <div class="frame-label">Screen 01 · <b>Sign In</b></div>
+    <div class="device">
+      <div class="screen">
+        <div class="statusbar">
+          <span>9:41</span>
+          <div class="notch"></div>
+          <div class="icons">
+            <svg width="16" height="10" viewBox="0 0 16 10"><path d="M0 8h2v2H0zM4 6h2v4H4zM8 4h2v6H8zM12 2h2v8h-2z" fill="#11161C"/></svg>
+            <svg width="14" height="10" viewBox="0 0 14 10"><path d="M7 1C4.5 1 2.5 2 1 3.5l1 1c1.3-1.3 3-2 5-2s3.7.7 5 2l1-1C11.5 2 9.5 1 7 1zM7 4c-1.5 0-3 .5-4 1.5l1 1c.7-.7 1.8-1.2 3-1.2s2.3.5 3 1.2l1-1C10 4.5 8.5 4 7 4zM7 7c-.7 0-1.3.2-1.7.5l1.7 1.7L8.7 7.5C8.3 7.2 7.7 7 7 7z" fill="#11161C"/></svg>
+            <svg width="22" height="10" viewBox="0 0 22 10"><rect x="0.5" y="0.5" width="18" height="9" rx="2" fill="none" stroke="#11161C"/><rect x="2" y="2" width="14" height="6" rx="1" fill="#11161C"/><rect x="19.5" y="3" width="1.5" height="4" rx="0.5" fill="#11161C"/></svg>
+          </div>
+        </div>
+
+        <div class="login">
+          <div class="brand-top">
+            <div class="brand-mark">
+              <div class="glyph">B</div>
+              <span>Backpack</span>
+            </div>
+            <div class="welcome">Welcome<br>back, <em>operative.</em></div>
+            <div class="sub">Sign in to start logging today's site activity.</div>
+          </div>
+
+          <div class="card">
+            <div class="field">
+              <label>Employee ID</label>
+              <div class="input"><span style="color:#A0A8B2;font-size:14px;">JMCC-</span><span style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:var(--ink);">08412</span></div>
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <div class="input focus">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <span class="dot"></span><span class="dot"></span>
+              </div>
+            </div>
+            <div class="row-link">Forgot password?</div>
+            <div class="btn">Sign in <span class="arrow">→</span></div>
+            <div class="biometric">
+              <div class="fp">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 11v3a3 3 0 0 1-3 3M6 13v-2a6 6 0 0 1 11.65-2.04M2 16.13c-.85-2.16-.85-5.96.39-7.78M12 22c-1.1 0-2-.9-2-2v-7M22 12c0-5.52-4.48-10-10-10-1.5 0-2.94.33-4.23.92"/></svg>
+              </div>
+              <span>Or use Face ID</span>
+            </div>
+          </div>
+
+          <div class="footer">v1.0 · J McCann &amp; Co Ltd</div>
+        </div>
+
+        <!-- Pins -->
+        <span class="pin" style="top: 70px; right: 12px;">FR-OP-01</span>
+        <span class="pin amber" style="bottom: 110px; left: 12px;">NFR-03 · MFA</span>
+
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+    <div class="frame-caption">
+      <span class="tag">FR-OP-01</span><span class="tag">NFR-03</span>
+      Branded sign-in with biometric fallback. Large 48dp inputs sit on a soft surface; the navy header anchors identity, the amber accent draws the eye to the next action.
+    </div>
+  </div>
+
+  <!-- ============ SCREEN 2 · JOB DASHBOARD ============ -->
+  <div class="frame-wrap">
+    <div class="frame-label">Screen 02 · <b>Today's Jobs</b></div>
+    <div class="device">
+      <div class="screen">
+        <div class="statusbar">
+          <span>9:41</span>
+          <div class="notch"></div>
+          <div class="icons">
+            <svg width="16" height="10" viewBox="0 0 16 10"><path d="M0 8h2v2H0zM4 6h2v4H4zM8 4h2v6H8zM12 2h2v8h-2z" fill="#11161C"/></svg>
+            <svg width="14" height="10" viewBox="0 0 14 10"><path d="M7 1C4.5 1 2.5 2 1 3.5l1 1c1.3-1.3 3-2 5-2s3.7.7 5 2l1-1C11.5 2 9.5 1 7 1z" fill="#11161C"/></svg>
+            <svg width="22" height="10" viewBox="0 0 22 10"><rect x="0.5" y="0.5" width="18" height="9" rx="2" fill="none" stroke="#11161C"/><rect x="2" y="2" width="14" height="6" rx="1" fill="#11161C"/></svg>
+          </div>
+        </div>
+
+        <div class="app">
+          <div class="dash-top">
+            <div>
+              <div class="hello">Tuesday, 26 May</div>
+              <div class="name">Morning, Daniel.</div>
+            </div>
+            <div class="avatar">DH</div>
+          </div>
+
+          <div class="scan-card">
+            <div class="lbl">Quick start</div>
+            <div class="ti">Scan a job reference</div>
+            <div class="scan-btn">
+              <span class="ic"></span>
+              Open scanner
+            </div>
+          </div>
+
+          <div class="section-h">
+            <div class="t">Assigned today</div>
+            <div class="more">3 of 5</div>
+          </div>
+
+          <div class="chips" style="margin-bottom: 10px;">
+            <div class="chip active">All</div>
+            <div class="chip">Active</div>
+            <div class="chip">Pending sync</div>
+          </div>
+
+          <div class="job-card">
+            <div class="head">
+              <div class="ref">JOB-2026-04812</div>
+              <div class="status live">● ON SITE</div>
+            </div>
+            <div class="ti">Column 22 — LED replacement</div>
+            <div class="loc"><span class="pin-dot"></span> A14, Bury St Edmunds</div>
+            <div class="meta">
+              <span>In · <b>08:14</b></span>
+              <span>•</span>
+              <span>2 vehicles</span>
+              <span>•</span>
+              <span>1h 42m</span>
+            </div>
+          </div>
+
+          <div class="job-card">
+            <div class="head">
+              <div class="ref">JOB-2026-04813</div>
+              <div class="status queue">⟳ QUEUED</div>
+            </div>
+            <div class="ti">Photocell fault diagnosis</div>
+            <div class="loc"><span class="pin-dot"></span> Mildenhall — High St</div>
+            <div class="meta">
+              <span>ETA · <b>11:30</b></span>
+              <span>•</span>
+              <span>1 vehicle</span>
+            </div>
+          </div>
+
+          <div class="job-card" style="opacity: 0.65;">
+            <div class="head">
+              <div class="ref">JOB-2026-04814</div>
+              <div class="status done">DONE</div>
+            </div>
+            <div class="ti">Cable test &amp; certify</div>
+            <div class="loc"><span class="pin-dot"></span> Ipswich — Bramford Rd</div>
+          </div>
+        </div>
+
+        <!-- FAB -->
+        <div class="fab">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+
+        <!-- Tabbar -->
+        <div class="tabbar">
+          <div class="tab active">
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+            <span>Jobs</span>
+          </div>
+          <div class="tab">
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <span>History</span>
+          </div>
+          <div class="tab">
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <span>Notes</span>
+          </div>
+          <div class="tab">
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg></div>
+            <span>Account</span>
+          </div>
+        </div>
+
+        <!-- Pins -->
+        <span class="pin" style="top: 175px; right: 12px;">FR-OP-02</span>
+        <span class="pin" style="top: 305px; left: 12px;">FR-OP-11</span>
+
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+    <div class="frame-caption">
+      <span class="tag">FR-OP-02</span><span class="tag">FR-OP-11</span>
+      Glanceable hub: today's assignments, sync state, and quick QR scanning. The amber FAB drops directly into a new job; offline-queued items are clearly marked.
+    </div>
+  </div>
+
+  <!-- ============ SCREEN 3 · JOB DETAIL FORM ============ -->
+  <div class="frame-wrap">
+    <div class="frame-label">Screen 03 · <b>Job Entry Form</b> · primary</div>
+    <div class="device">
+      <div class="screen">
+        <div class="statusbar">
+          <span>9:41</span>
+          <div class="notch"></div>
+          <div class="icons">
+            <svg width="16" height="10" viewBox="0 0 16 10"><path d="M0 8h2v2H0zM4 6h2v4H4zM8 4h2v6H8zM12 2h2v8h-2z" fill="#11161C"/></svg>
+            <svg width="14" height="10" viewBox="0 0 14 10"><path d="M7 1C4.5 1 2.5 2 1 3.5l1 1c1.3-1.3 3-2 5-2s3.7.7 5 2l1-1C11.5 2 9.5 1 7 1z" fill="#11161C"/></svg>
+            <svg width="22" height="10" viewBox="0 0 22 10"><rect x="0.5" y="0.5" width="18" height="9" rx="2" fill="none" stroke="#11161C"/><rect x="2" y="2" width="14" height="6" rx="1" fill="#11161C"/></svg>
+          </div>
+        </div>
+
+        <div class="app">
+          <div class="form-top">
+            <div class="back">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </div>
+            <div class="title">Job Entry</div>
+            <div class="save">Save draft</div>
+          </div>
+
+          <div class="progress-row">
+            <div class="seg done"></div>
+            <div class="seg done"></div>
+            <div class="seg now"></div>
+            <div class="seg"></div>
+            <div class="pct">75%</div>
+          </div>
+
+          <div class="job-banner">
+            <div>
+              <div class="lbl">Job Reference</div>
+              <div class="ref-id">JOB-2026-04812</div>
+            </div>
+            <div class="ic">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+          </div>
+
+          <div class="form-scroll">
+            <div class="field-group">
+              <div class="field-label">
+                <span>Time on site</span>
+                <span class="req-id">FR-OP-03 · FR-OP-04</span>
+              </div>
+              <div class="time-row">
+                <div class="time-pill">
+                  <div class="ttl">Arrived</div>
+                  <div class="val">08:14</div>
+                  <div class="day">Tue 26 May</div>
+                </div>
+                <div class="time-pill amber">
+                  <div class="ttl">Departed</div>
+                  <div class="val">— : —</div>
+                  <div class="day">Tap to log</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <div class="field-label">
+                <span>Plant &amp; tools</span>
+                <span class="req-id">FR-OP-05</span>
+              </div>
+              <div class="selector-card">
+                <div>
+                  <div class="nm">Cherry Picker</div>
+                  <div class="rate">£45.00/hr</div>
+                </div>
+                <div class="right">
+                  <div class="qty-stepper">
+                    <div class="b">−</div>
+                    <div class="v">1.5h</div>
+                    <div class="b">+</div>
+                  </div>
+                </div>
+              </div>
+              <div class="selector-card">
+                <div>
+                  <div class="nm">Generator</div>
+                  <div class="rate">£25.00/hr</div>
+                </div>
+                <div class="right">
+                  <div class="qty-stepper">
+                    <div class="b">−</div>
+                    <div class="v">2.0h</div>
+                    <div class="b">+</div>
+                  </div>
+                </div>
+              </div>
+              <div class="add-row">
+                <span class="pl">+</span> Add plant or tools
+              </div>
+            </div>
+
+            <div class="field-group">
+              <div class="field-label">
+                <span>Materials used</span>
+                <span class="req-id">FR-OP-06</span>
+              </div>
+              <div class="selector-card">
+                <div>
+                  <div class="nm">LED Lantern</div>
+                  <div class="rate">£85.00 each</div>
+                </div>
+                <div class="qty-stepper">
+                  <div class="b">−</div>
+                  <div class="v">×2</div>
+                  <div class="b">+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cost summary docked -->
+          <div class="cost-sum">
+            <div class="row">
+              <span class="lab">Labour · 1h 42m</span>
+              <span class="val">£47.60</span>
+            </div>
+            <div class="row">
+              <span class="lab">Plant + materials + vehicle</span>
+              <span class="val">£352.50</span>
+            </div>
+            <div class="total">
+              <span class="lab">Estimated total</span>
+              <span class="val">£400.10</span>
+            </div>
+            <div class="submit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+              Submit job record
+            </div>
+          </div>
+        </div>
+
+        <!-- Pins -->
+        <span class="pin amber" style="bottom: 200px; right: 12px;">FR-CC-01..05</span>
+
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+    <div class="frame-caption">
+      <span class="tag">FR-OP-03..10</span><span class="tag">FR-CC-01..05</span>
+      The screen we're coding. Live cost summary docks to the bottom so total updates as the operative adds inputs — making the cost-engine logic visible at the point of capture.
+    </div>
+  </div>
+
+  <!-- ============ SCREEN 4 · CONFIRMATION ============ -->
+  <div class="frame-wrap">
+    <div class="frame-label">Screen 04 · <b>Submitted</b></div>
+    <div class="device">
+      <div class="screen">
+        <div class="statusbar">
+          <span>9:41</span>
+          <div class="notch"></div>
+          <div class="icons">
+            <svg width="16" height="10" viewBox="0 0 16 10"><path d="M0 8h2v2H0zM4 6h2v4H4zM8 4h2v6H8zM12 2h2v8h-2z" fill="#11161C"/></svg>
+            <svg width="14" height="10" viewBox="0 0 14 10"><path d="M7 1C4.5 1 2.5 2 1 3.5l1 1c1.3-1.3 3-2 5-2s3.7.7 5 2l1-1C11.5 2 9.5 1 7 1z" fill="#11161C"/></svg>
+            <svg width="22" height="10" viewBox="0 0 22 10"><rect x="0.5" y="0.5" width="18" height="9" rx="2" fill="none" stroke="#11161C"/><rect x="2" y="2" width="14" height="6" rx="1" fill="#11161C"/></svg>
+          </div>
+        </div>
+
+        <div class="confirm">
+          <div class="tick-wrap">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0E2A47" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+
+          <h1>Record <span class="em">submitted</span></h1>
+          <div class="lede">Daniel — your job has been logged and sent to the QS team for review.</div>
+
+          <div class="receipt">
+            <div class="r-h">
+              <div>
+                <div class="r-id">RECEIPT</div>
+                <div class="r-ref">JOB-2026-04812</div>
+              </div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-3);text-align:right;">
+                Tue 26 May<br>09:56 BST
+              </div>
+            </div>
+            <div class="r-line"><span>Time on site</span><span class="v">1h 42m</span></div>
+            <div class="r-line"><span>Plant items</span><span class="v">2</span></div>
+            <div class="r-line"><span>Materials</span><span class="v">2 lines</span></div>
+            <div class="r-line"><span>Vehicles</span><span class="v">2</span></div>
+            <div class="r-line"><span>Rate card</span><span class="v">v.2026-Q2</span></div>
+            <div class="r-total">
+              <span class="l">Total cost</span>
+              <span class="v">£400.10</span>
+            </div>
+          </div>
+
+          <div class="send-state">
+            <span class="dot"></span>
+            Synced — visible to QS
+          </div>
+
+          <div class="actions">
+            <div class="primary">Back to today's jobs</div>
+            <div class="secondary">View receipt</div>
+          </div>
+        </div>
+
+        <!-- Pins -->
+        <span class="pin" style="top: 100px; right: 14px;">FR-OP-10</span>
+        <span class="pin amber" style="top: 470px; right: 14px;">FR-CC-06 · rate card</span>
+
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+    <div class="frame-caption">
+      <span class="tag">FR-OP-10</span><span class="tag">FR-CC-06</span>
+      Closes the loop with a receipt the operative can refer back to. Sync state is shown explicitly so the user knows the record has left the device.
+    </div>
+  </div>
+
+</div>
+
+<!-- ============ WEB ROW ============ -->
+<div class="section-band">
+  <div class="section-num">02</div>
+  <div class="section-title">Quantity Surveyor · Web Dashboard</div>
+  <div class="section-rule"></div>
+  <div class="section-note">1440 × 900 · Chrome / Edge / Safari</div>
+</div>
+
+<div class="row web">
+
+  <!-- ============ WEB 1 · JOB LIST ============ -->
+  <div class="frame-wrap">
+    <div class="frame-label">Screen 05 · <b>Job List &amp; Filters</b></div>
+    <div class="web-frame">
+      <div class="chrome">
+        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="url"><span class="lock"></span>backpack.jmccann.co.uk/jobs</div>
+      </div>
+      <div class="web-content">
+        <div class="web-side">
+          <div class="brand"><div class="glyph">B</div>Backpack</div>
+          <div class="nav-cat">Commercial</div>
+          <div class="nav active"><div class="nic">≡</div>All jobs</div>
+          <div class="nav"><div class="nic">⚠</div>Flagged · 3</div>
+          <div class="nav"><div class="nic">✓</div>Approved</div>
+          <div class="nav"><div class="nic">⤓</div>Exports</div>
+          <div class="nav-cat">Insight</div>
+          <div class="nav"><div class="nic">◆</div>Analytics</div>
+          <div class="nav"><div class="nic">⏱</div>Operatives</div>
+          <div class="nav"><div class="nic">⚙</div>Rate cards</div>
+          <div class="user-card">
+            <div class="av">SK</div>
+            <div>
+              <div class="nm">S. Khan</div>
+              <div class="rl">Quantity Surveyor</div>
+            </div>
+          </div>
+        </div>
+        <div class="web-main">
+          <div class="ph">
+            <div>
+              <div class="crumbs">COMMERCIAL · JOBS</div>
+              <h1>Submitted job records</h1>
+            </div>
+            <div class="header-actions">
+              <div class="ba">⤓ Export</div>
+              <div class="ba primary">+ New review</div>
+            </div>
+          </div>
+
+          <!-- KPIs -->
+          <div class="kpis">
+            <div class="kpi">
+              <div class="lbl">Pending review</div>
+              <div class="val">42</div>
+              <div class="delta up">↑ 8 since yesterday</div>
+              <svg class="spark" viewBox="0 0 50 22"><polyline points="0,18 8,15 16,17 24,11 32,13 40,7 50,4" fill="none" stroke="#E89B3C" stroke-width="1.5"/></svg>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Total · this week</div>
+              <div class="val">£28,412</div>
+              <div class="delta up">↑ 4.2%</div>
+              <svg class="spark" viewBox="0 0 50 22"><polyline points="0,14 10,12 20,15 30,10 40,8 50,5" fill="none" stroke="#0E2A47" stroke-width="1.5"/></svg>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Avg job cost</div>
+              <div class="val">£412</div>
+              <div class="delta dn">↓ £18</div>
+              <svg class="spark" viewBox="0 0 50 22"><polyline points="0,8 10,10 20,9 30,12 40,11 50,14" fill="none" stroke="#B23A3A" stroke-width="1.5"/></svg>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Flagged</div>
+              <div class="val">3</div>
+              <div class="delta up">2 over budget</div>
+              <svg class="spark" viewBox="0 0 50 22"><polyline points="0,12 10,11 20,13 30,9 40,7 50,4" fill="none" stroke="#E89B3C" stroke-width="1.5"/></svg>
+            </div>
+          </div>
+
+          <!-- Filter bar -->
+          <div class="filter-bar">
+            <div class="left">
+              <div class="fpill amber">Date: This week<span class="x">×</span></div>
+              <div class="fpill">Operative: All</div>
+              <div class="fpill">Status: Pending</div>
+              <div class="fpill">+ Add filter</div>
+            </div>
+            <div class="search">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              Search by ref, location…
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="tbl">
+            <div class="tbl-head">
+              <div>REF</div>
+              <div>OPERATIVE</div>
+              <div>LOCATION</div>
+              <div>DATE</div>
+              <div>HRS</div>
+              <div>COST</div>
+              <div>STATUS</div>
+            </div>
+            <div class="tbl-row sel">
+              <div class="ref">04812</div>
+              <div class="op"><div class="av">DH</div>D. Holloway</div>
+              <div class="loc">A14 · Bury St Edmunds</div>
+              <div class="when">26/05 09:56</div>
+              <div class="when">1.7</div>
+              <div class="cost">£400.10</div>
+              <div><div class="st pend">PENDING</div></div>
+            </div>
+            <div class="tbl-row">
+              <div class="ref">04811</div>
+              <div class="op"><div class="av">RT</div>R. Talbot</div>
+              <div class="loc">Mildenhall · High St</div>
+              <div class="when">26/05 09:12</div>
+              <div class="when">2.1</div>
+              <div class="cost">£612.40</div>
+              <div><div class="st appr">APPROVED</div></div>
+            </div>
+            <div class="tbl-row">
+              <div class="ref">04810</div>
+              <div class="op"><div class="av">MP</div>M. Patel</div>
+              <div class="loc">Ipswich · Bramford Rd</div>
+              <div class="when">26/05 08:45</div>
+              <div class="when">3.4</div>
+              <div class="cost">£1,028.55</div>
+              <div><div class="st flag">FLAGGED</div></div>
+            </div>
+            <div class="tbl-row">
+              <div class="ref">04809</div>
+              <div class="op"><div class="av">JW</div>J. Wright</div>
+              <div class="loc">Stowmarket · B1115</div>
+              <div class="when">26/05 08:14</div>
+              <div class="when">1.2</div>
+              <div class="cost">£284.20</div>
+              <div><div class="st appr">APPROVED</div></div>
+            </div>
+            <div class="tbl-row">
+              <div class="ref">04808</div>
+              <div class="op"><div class="av">DH</div>D. Holloway</div>
+              <div class="loc">A14 · Newmarket</div>
+              <div class="when">25/05 16:32</div>
+              <div class="when">0.8</div>
+              <div class="cost">£198.40</div>
+              <div><div class="st pend">PENDING</div></div>
+            </div>
+            <div class="tbl-row">
+              <div class="ref">04807</div>
+              <div class="op"><div class="av">RT</div>R. Talbot</div>
+              <div class="loc">Sudbury · Town Centre</div>
+              <div class="when">25/05 15:18</div>
+              <div class="when">2.6</div>
+              <div class="cost">£742.10</div>
+              <div><div class="st appr">APPROVED</div></div>
+            </div>
+            <div class="tbl-row">
+              <div class="ref">04806</div>
+              <div class="op"><div class="av">SC</div>S. Cole</div>
+              <div class="loc">Felixstowe · A14</div>
+              <div class="when">25/05 14:05</div>
+              <div class="when">1.4</div>
+              <div class="cost">£356.80</div>
+              <div><div class="st draft">DRAFT</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="frame-caption">
+      <span class="tag">FR-QS-01</span><span class="tag">FR-QS-03</span><span class="tag">FR-QS-04</span><span class="tag">FR-QS-06</span>
+      The QS's home base. KPI tiles give the commercial picture at a glance; the table below is filterable, exportable, and one click into each cost record.
+    </div>
+  </div>
+
+  <!-- ============ WEB 2 · COST DETAIL ============ -->
+  <div class="frame-wrap">
+    <div class="frame-label">Screen 06 · <b>Cost Breakdown</b></div>
+    <div class="web-frame">
+      <div class="chrome">
+        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="url"><span class="lock"></span>backpack.jmccann.co.uk/jobs/04812</div>
+      </div>
+      <div class="web-content">
+        <div class="web-side">
+          <div class="brand"><div class="glyph">B</div>Backpack</div>
+          <div class="nav-cat">Commercial</div>
+          <div class="nav active"><div class="nic">≡</div>All jobs</div>
+          <div class="nav"><div class="nic">⚠</div>Flagged · 3</div>
+          <div class="nav"><div class="nic">✓</div>Approved</div>
+          <div class="nav"><div class="nic">⤓</div>Exports</div>
+          <div class="nav-cat">Insight</div>
+          <div class="nav"><div class="nic">◆</div>Analytics</div>
+          <div class="nav"><div class="nic">⏱</div>Operatives</div>
+          <div class="nav"><div class="nic">⚙</div>Rate cards</div>
+          <div class="user-card">
+            <div class="av">SK</div>
+            <div>
+              <div class="nm">S. Khan</div>
+              <div class="rl">Quantity Surveyor</div>
+            </div>
+          </div>
+        </div>
+        <div class="web-main">
+          <div class="ph">
+            <div>
+              <div class="crumbs">JOBS · JOB-2026-04812</div>
+              <h1>Column 22 — LED replacement</h1>
+              <div style="font-size:10px;color:var(--ink-3);margin-top:4px;display:flex;gap:10px;">
+                <span>A14 · Bury St Edmunds</span><span>·</span>
+                <span>D. Holloway</span><span>·</span>
+                <span>Tue 26 May, 08:14–09:56</span>
+              </div>
+            </div>
+            <div class="header-actions">
+              <div class="ba">⤓ PDF</div>
+              <div class="ba">⤓ CSV</div>
+              <div class="ba primary">✓ Approve</div>
+            </div>
+          </div>
+
+          <div class="detail-grid">
+            <!-- Left: itemised -->
+            <div>
+              <div class="detail-card">
+                <h3>Itemised breakdown <span class="rid">FR-QS-02 · FR-CC-01..05</span></h3>
+
+                <div class="dc-section-title">Labour <span class="pill">FR-CC-01</span></div>
+                <div class="itemized">
+                  <div class="line">
+                    <div class="nm">D. Holloway — Operative</div>
+                    <div class="qty">1.7 hrs</div>
+                    <div class="rate">£28.00/hr</div>
+                    <div class="sub">£47.60</div>
+                  </div>
+                </div>
+                <div class="subtotal-row"><span class="l">Labour subtotal</span><span class="v">£47.60</span></div>
+
+                <div class="dc-section-title" style="margin-top:12px;">Plant &amp; Tools <span class="pill">FR-CC-02</span></div>
+                <div class="itemized">
+                  <div class="line">
+                    <div class="nm">Cherry Picker</div>
+                    <div class="qty">1.5 hrs</div>
+                    <div class="rate">£45.00/hr</div>
+                    <div class="sub">£67.50</div>
+                  </div>
+                  <div class="line">
+                    <div class="nm">Generator</div>
+                    <div class="qty">2.0 hrs</div>
+                    <div class="rate">£25.00/hr</div>
+                    <div class="sub">£50.00</div>
+                  </div>
+                </div>
+                <div class="subtotal-row"><span class="l">Plant subtotal</span><span class="v">£117.50</span></div>
+
+                <div class="dc-section-title" style="margin-top:12px;">Materials <span class="pill">FR-CC-03</span></div>
+                <div class="itemized">
+                  <div class="line">
+                    <div class="nm">LED Lantern</div>
+                    <div class="qty">× 2</div>
+                    <div class="rate">£85.00</div>
+                    <div class="sub">£170.00</div>
+                  </div>
+                </div>
+                <div class="subtotal-row"><span class="l">Materials subtotal</span><span class="v">£170.00</span></div>
+
+                <div class="dc-section-title" style="margin-top:12px;">Vehicles <span class="pill">FR-CC-04</span></div>
+                <div class="itemized">
+                  <div class="line">
+                    <div class="nm">MEWP Vehicle</div>
+                    <div class="qty">1 day</div>
+                    <div class="rate">£150.00</div>
+                    <div class="sub">£65.00</div>
+                  </div>
+                </div>
+                <div class="subtotal-row"><span class="l">Vehicle subtotal</span><span class="v">£65.00</span></div>
+              </div>
+
+              <div class="detail-card" style="margin-top:12px;">
+                <h3>Photographic evidence <span class="rid">FR-OP-09</span></h3>
+                <div class="photos">
+                  <div class="ph"></div>
+                  <div class="ph alt"></div>
+                  <div class="ph alt2"></div>
+                  <div class="ph"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: hero + actions -->
+            <div class="detail-aside">
+              <div class="cost-hero">
+                <div class="lbl">Grand total · FR-CC-05</div>
+                <div class="v">£400.10</div>
+                <div class="sm">Computed server-side · immutable</div>
+                <div class="ratecard">
+                  <span>Rate card</span>
+                  <span>v.2026-Q2</span>
+                </div>
+              </div>
+
+              <div class="detail-card">
+                <h3>Cost composition</h3>
+                <div class="bdown-chart">
+                  <div class="seg" style="width:12%;background:#0E2A47;"></div>
+                  <div class="seg" style="width:29%;background:#1A3D5C;"></div>
+                  <div class="seg" style="width:42%;background:#E89B3C;"></div>
+                  <div class="seg" style="width:17%;background:#D88820;"></div>
+                </div>
+                <div class="bdown-legend">
+                  <div class="item"><span class="sw" style="background:#0E2A47;"></span><span class="nm">Labour</span><span class="vl">12%</span></div>
+                  <div class="item"><span class="sw" style="background:#1A3D5C;"></span><span class="nm">Plant</span><span class="vl">29%</span></div>
+                  <div class="item"><span class="sw" style="background:#E89B3C;"></span><span class="nm">Materials</span><span class="vl">42%</span></div>
+                  <div class="item"><span class="sw" style="background:#D88820;"></span><span class="nm">Vehicle</span><span class="vl">17%</span></div>
+                </div>
+              </div>
+
+              <div class="detail-card">
+                <h3>Decision <span class="rid">FR-QS-05</span></h3>
+                <div class="action-stack">
+                  <div class="ba primary">✓ Approve &amp; close</div>
+                  <div class="ba secondary">⚐ Flag for review</div>
+                  <div class="ba danger">⨯ Reject</div>
+                </div>
+              </div>
+
+              <div class="audit">
+                <h3>Audit trail <span style="float:right;font-family:'JetBrains Mono',monospace;color:var(--amber-2);font-size:9px;">NFR-09</span></h3>
+                <div class="ev">
+                  <div class="dot"></div>
+                  <div style="flex:1;">
+                    <div style="display:flex;justify-content:space-between;">
+                      <span class="nm">D. Holloway</span><span class="ts">09:56</span>
+                    </div>
+                    <div class="desc">Submitted from mobile</div>
+                  </div>
+                </div>
+                <div class="ev">
+                  <div class="dot" style="background:#1A3D5C;"></div>
+                  <div style="flex:1;">
+                    <div style="display:flex;justify-content:space-between;">
+                      <span class="nm">Cost Engine</span><span class="ts">09:56</span>
+                    </div>
+                    <div class="desc">Priced against rate card v.2026-Q2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="frame-caption">
+      <span class="tag">FR-QS-02</span><span class="tag">FR-QS-05</span><span class="tag">NFR-09</span>
+      Every line ties to a rate-card entry. The grand-total card surfaces the rate-card version so the QS can see exactly what pricing was applied — auditability built into the UI itself.
+    </div>
+  </div>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<div class="foot">
+  <div class="legend">
+    <div class="lg"><div class="sq navy"></div>Navy · primary surface &amp; CTAs</div>
+    <div class="lg"><div class="sq amber"></div>Amber · accent &amp; emphasis</div>
+    <div class="lg"><div class="sq surf"></div>Neutral · input &amp; surface</div>
+    <div class="lg"><div class="sq tint"></div>Active filter / Tint</div>
+  </div>
+  <div class="ver">Version 1.0 · 26 May 2026</div>
+</div>
+
+</div>
+</body>
+</html>

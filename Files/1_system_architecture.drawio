@@ -1,0 +1,552 @@
+<mxfile host="app.diagrams.net" modified="2026-05-26T00:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram name="System Architecture" id="arch-1">
+    <mxGraphModel dx="2000" dy="1200" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TITLE -->
+        <mxCell id="title" value="Backpack — System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="600" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Client tier · Cloud backend · DevOps pipeline" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontColor=#64748B;" vertex="1" parent="1">
+          <mxGeometry x="60" y="64" width="600" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="meta" value="J McCann &amp; Co Ltd  ·  KTP Associate Task  ·  Deliverable 2" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#94A3B8;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="46" width="540" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ZONE 1: CLIENT TIER -->
+        <mxCell id="zone-client" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="360" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="zone-client-label" value="CLIENT TIER" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#64748B;letterSpacing=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="135" width="200" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ZONE 2: CLOUD BACKEND -->
+        <mxCell id="zone-cloud" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF9F3;strokeColor=#FCD9A8;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="120" width="720" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="zone-cloud-label" value="CLOUD BACKEND  ·  Firebase / GCP" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#B45309;letterSpacing=2;" vertex="1" parent="1">
+          <mxGeometry x="480" y="135" width="400" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ZONE 3: DEVOPS -->
+        <mxCell id="zone-devops" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDFA;strokeColor=#99F6E4;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="120" width="320" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="zone-devops-label" value="DEVOPS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#0F766E;letterSpacing=2;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="135" width="200" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ===== CLIENT TIER COMPONENTS ===== -->
+
+        <!-- Operative Persona -->
+        <mxCell id="actor-op" value="Field Operative" style="shape=umlActor;verticalLabelPosition=bottom;labelPosition=center;verticalAlign=top;html=1;outlineConnect=0;fillColor=#1A365D;strokeColor=#1A365D;fontSize=11;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="105" y="195" width="40" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Mobile App container -->
+        <mxCell id="mobile-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A365D;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="180" y="190" width="220" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile-card-title" value="Flutter Mobile App" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="245" y="205" width="150" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile-card-sub" value="iOS · Android" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#64748B;" vertex="1" parent="1">
+          <mxGeometry x="245" y="225" width="150" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="phone-icon" value="" style="shape=mxgraph.android.phone2;html=1;whiteSpace=wrap;fillColor=#1A365D;strokeColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="200" y="205" width="36" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Mobile internals -->
+        <mxCell id="mob-ui" value="UI · Job Entry Form" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1A365D;fontSize=10;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="195" y="285" width="190" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="mob-state" value="State · Riverpod" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1A365D;fontSize=10;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="195" y="320" width="190" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="mob-cache" value="Local Cache · Hive (offline)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;fontColor=#92400E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="195" y="355" width="190" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- QS Persona -->
+        <mxCell id="actor-qs" value="Quantity Surveyor" style="shape=umlActor;verticalLabelPosition=bottom;labelPosition=center;verticalAlign=top;html=1;outlineConnect=0;fillColor=#1A365D;strokeColor=#1A365D;fontSize=11;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="105" y="535" width="40" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Web Dashboard container -->
+        <mxCell id="web-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A365D;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="180" y="530" width="220" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="web-card-title" value="Flutter Web Dashboard" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="245" y="545" width="150" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="web-card-sub" value="Chrome · Edge · Safari" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#64748B;" vertex="1" parent="1">
+          <mxGeometry x="245" y="565" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="laptop-icon" value="" style="shape=mxgraph.networking.laptop;html=1;whiteSpace=wrap;fillColor=#1A365D;strokeColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="195" y="545" width="50" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Web internals -->
+        <mxCell id="web-list" value="Job List · Filters · Search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1A365D;fontSize=10;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="195" y="620" width="190" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="web-detail" value="Cost Breakdown · Approve" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1A365D;fontSize=10;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="195" y="655" width="190" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="web-export" value="Export · CSV / PDF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1A365D;fontSize=10;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="195" y="690" width="190" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Connectivity Status Note -->
+        <mxCell id="conn-note" value="Intermittent connectivity&#10;Periodic sync windows" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;dashed=1;fontSize=10;fontColor=#92400E;align=center;" vertex="1" parent="1">
+          <mxGeometry x="180" y="820" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="conn-note-label" value="⚡ Field conditions" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="180" y="795" width="200" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ===== CLOUD BACKEND COMPONENTS ===== -->
+
+        <!-- API Gateway / Hosting -->
+        <mxCell id="hosting-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F59E0B;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="200" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="hosting-icon" value="" style="shape=mxgraph.gcp2.firebase_hosting;html=1;labelPosition=right;align=left;spacingLeft=10;fillColor=#F59E0B;strokeColor=#F59E0B;" vertex="1" parent="1">
+          <mxGeometry x="510" y="225" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hosting-title" value="Firebase Hosting" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="575" y="220" width="140" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="hosting-sub" value="Static web · CDN · TLS 1.2+" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="575" y="245" width="140" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="hosting-sub2" value="Global edge delivery" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#B45309;" vertex="1" parent="1">
+          <mxGeometry x="575" y="263" width="140" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Authentication -->
+        <mxCell id="auth-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F59E0B;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="330" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-icon" value="" style="shape=mxgraph.gcp2.firebase_authentication;html=1;fillColor=#F59E0B;strokeColor=#F59E0B;" vertex="1" parent="1">
+          <mxGeometry x="510" y="355" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-title" value="Firebase Auth" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="575" y="350" width="140" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-sub" value="Email · MFA · RBAC" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="575" y="375" width="140" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-sub2" value="Session tokens, hashed creds" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#B45309;" vertex="1" parent="1">
+          <mxGeometry x="575" y="393" width="150" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Cloud Functions (API Layer) -->
+        <mxCell id="fn-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F59E0B;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="460" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="fn-icon" value="" style="shape=mxgraph.gcp2.cloud_functions;html=1;fillColor=#F59E0B;strokeColor=#F59E0B;" vertex="1" parent="1">
+          <mxGeometry x="510" y="485" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fn-title" value="Cloud Functions" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="575" y="480" width="140" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="fn-sub" value="REST API · Triggers" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="575" y="505" width="140" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="fn-engine" value="Cost Calculation Engine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;fontStyle=1;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="505" y="545" width="190" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fn-engine-sub" value="labour + plant + materials + vehicle" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#B45309;" vertex="1" parent="1">
+          <mxGeometry x="505" y="578" width="190" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="fn-engine-sub2" value="Versioned rate cards · audit trail" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#B45309;" vertex="1" parent="1">
+          <mxGeometry x="505" y="595" width="190" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Firestore (the spine) -->
+        <mxCell id="fs-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBEB;strokeColor=#F59E0B;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="780" y="200" width="240" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="fs-icon" value="" style="shape=mxgraph.gcp2.firestore;html=1;fillColor=#F59E0B;strokeColor=#F59E0B;" vertex="1" parent="1">
+          <mxGeometry x="800" y="225" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fs-title" value="Cloud Firestore" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="865" y="220" width="150" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="fs-sub" value="Primary data store" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="865" y="245" width="150" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="fs-sub2" value="Realtime listeners · offline SDK" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#B45309;" vertex="1" parent="1">
+          <mxGeometry x="865" y="263" width="160" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Firestore collections -->
+        <mxCell id="fs-c1" value="📁 /jobs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F59E0B;fontSize=11;fontColor=#92400E;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="295" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fs-c2" value="📁 /users" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F59E0B;fontSize=11;fontColor=#92400E;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="330" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fs-c3" value="📁 /rate_cards (versioned)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F59E0B;fontSize=11;fontColor=#92400E;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="365" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fs-c4" value="📁 /audit_log" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F59E0B;fontSize=11;fontColor=#92400E;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="400" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fs-c5" value="🔐 Security Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;fontColor=#92400E;fontStyle=2;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="445" width="200" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Cloud Storage -->
+        <mxCell id="storage-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F59E0B;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="780" y="530" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="storage-icon" value="" style="shape=mxgraph.gcp2.cloud_storage;html=1;fillColor=#F59E0B;strokeColor=#F59E0B;" vertex="1" parent="1">
+          <mxGeometry x="800" y="555" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="storage-title" value="Firebase Storage" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="865" y="550" width="150" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="storage-sub" value="Site photos · evidence" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="865" y="575" width="150" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="storage-sub2" value="Encrypted at rest" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#B45309;" vertex="1" parent="1">
+          <mxGeometry x="865" y="593" width="150" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Observability cluster -->
+        <mxCell id="obs-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F59E0B;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="660" width="530" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="obs-title" value="Observability &amp; Operations" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="510" y="675" width="300" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obs-crash" value="" style="shape=mxgraph.gcp2.firebase_crashlytics;html=1;fillColor=#F59E0B;strokeColor=#F59E0B;" vertex="1" parent="1">
+          <mxGeometry x="510" y="710" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="obs-crash-l" value="Crashlytics" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="500" y="752" width="60" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obs-perf" value="" style="shape=mxgraph.gcp2.firebase_performance_monitoring;html=1;fillColor=#F59E0B;strokeColor=#F59E0B;" vertex="1" parent="1">
+          <mxGeometry x="610" y="710" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="obs-perf-l" value="Performance" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="600" y="752" width="60" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obs-analytics" value="" style="shape=mxgraph.gcp2.google_analytics_for_firebase;html=1;fillColor=#F59E0B;strokeColor=#F59E0B;" vertex="1" parent="1">
+          <mxGeometry x="710" y="710" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="obs-analytics-l" value="Analytics" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="700" y="752" width="60" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obs-log" value="" style="shape=mxgraph.gcp2.cloud_logging;html=1;fillColor=#F59E0B;strokeColor=#F59E0B;" vertex="1" parent="1">
+          <mxGeometry x="810" y="710" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="obs-log-l" value="Cloud Logging" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="795" y="752" width="70" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obs-mon" value="" style="shape=mxgraph.gcp2.cloud_monitoring;html=1;fillColor=#F59E0B;strokeColor=#F59E0B;" vertex="1" parent="1">
+          <mxGeometry x="910" y="710" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="obs-mon-l" value="Monitoring" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="900" y="752" width="60" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Security panel -->
+        <mxCell id="sec-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F59E0B;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="810" width="530" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-title" value="🛡️  Security &amp; Compliance" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="510" y="825" width="300" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-1" value="TLS 1.2+ in transit · AES-256 at rest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="510" y="860" width="240" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-2" value="Role-based access control (RBAC)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="760" y="860" width="240" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-3" value="Firestore Security Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="510" y="895" width="240" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-4" value="Audit log · immutable history" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="760" y="895" width="240" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-5" value="Secret management · GCP Secret Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="510" y="930" width="240" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-6" value="Dependency scanning · Dependabot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="760" y="930" width="240" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Hosted near cloud zone bottom -->
+        <mxCell id="cloud-host-note" value="Hosted on Google Cloud Platform · europe-west2 (London)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#B45309;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="990" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ===== DEVOPS COMPONENTS ===== -->
+
+        <!-- Developer -->
+        <mxCell id="dev-actor" value="Developer" style="shape=umlActor;verticalLabelPosition=bottom;labelPosition=center;verticalAlign=top;html=1;outlineConnect=0;fillColor=#0F766E;strokeColor=#0F766E;fontSize=11;fontStyle=1;fontColor=#0F766E;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="195" width="40" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- GitHub -->
+        <mxCell id="gh-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F766E;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="290" width="270" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="gh-icon" value="" style="shape=mxgraph.veeam2.repository_icons;html=1;labelPosition=right;align=left;spacingLeft=10;fillColor=#0F766E;strokeColor=#0F766E;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="315" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="gh-title" value="GitHub" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#0F766E;" vertex="1" parent="1">
+          <mxGeometry x="1335" y="305" width="160" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="gh-sub" value="Source · PRs · Issues" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#0F766E;" vertex="1" parent="1">
+          <mxGeometry x="1335" y="330" width="160" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="gh-sub2" value="Branch protection on main" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#14B8A6;" vertex="1" parent="1">
+          <mxGeometry x="1335" y="348" width="170" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- GitHub Actions -->
+        <mxCell id="ga-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F766E;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="430" width="270" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="ga-title" value="GitHub Actions" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#0F766E;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="445" width="270" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ga-sub" value="CI / CD pipeline" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#14B8A6;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="465" width="270" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ga-s1" value="① flutter analyze" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDFA;strokeColor=#0F766E;fontSize=10;fontColor=#0F766E;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="495" width="230" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ga-s2" value="② flutter test (unit + widget)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDFA;strokeColor=#0F766E;fontSize=10;fontColor=#0F766E;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="528" width="230" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ga-s3" value="③ flutter build web / apk" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDFA;strokeColor=#0F766E;fontSize=10;fontColor=#0F766E;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="561" width="230" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ga-s4" value="④ deploy → staging" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDFA;strokeColor=#0F766E;fontSize=10;fontColor=#0F766E;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="594" width="230" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ga-s5" value="⑤ manual approval gate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;fontSize=10;fontColor=#92400E;fontStyle=1;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="627" width="230" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="ga-s6" value="⑥ deploy → production" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDFA;strokeColor=#0F766E;fontSize=10;fontColor=#0F766E;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="660" width="230" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Environments -->
+        <mxCell id="env-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0F766E;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="730" width="270" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="env-title" value="Environments" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#0F766E;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="745" width="270" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="env-dev" value="dev" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDFA;strokeColor=#0F766E;fontSize=10;fontColor=#0F766E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="780" width="70" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="env-dev-sub" value="feature branches" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#0F766E;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="780" width="160" height="34" as="geometry" />
+        </mxCell>
+
+        <mxCell id="env-stg" value="staging" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;fontSize=10;fontColor=#92400E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="820" width="70" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="env-stg-sub" value="develop branch" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#0F766E;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="820" width="160" height="34" as="geometry" />
+        </mxCell>
+
+        <mxCell id="env-prod" value="prod" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1A365D;strokeColor=#1A365D;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="860" width="70" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="env-prod-sub" value="main branch · tagged release" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#0F766E;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="860" width="180" height="34" as="geometry" />
+        </mxCell>
+
+        <!-- ===== CONNECTIONS ===== -->
+
+        <!-- Actor to apps -->
+        <mxCell id="e-op-mob" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#1A365D;strokeWidth=1.5;endArrow=open;endFill=0;" edge="1" parent="1" source="actor-op" target="mobile-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-qs-web" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#1A365D;strokeWidth=1.5;endArrow=open;endFill=0;" edge="1" parent="1" source="actor-qs" target="web-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Mobile to Hosting -->
+        <mxCell id="e-mob-host" value="HTTPS · REST" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;strokeColor=#1A365D;strokeWidth=2;fontSize=10;fontColor=#1A365D;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="mobile-card" target="hosting-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Web to Hosting -->
+        <mxCell id="e-web-host" value="HTTPS · CDN" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;strokeColor=#1A365D;strokeWidth=2;fontSize=10;fontColor=#1A365D;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="web-card" target="hosting-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Mobile to Auth -->
+        <mxCell id="e-mob-auth" value="auth tokens" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.55;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#64748B;strokeWidth=1.5;fontSize=10;fontColor=#64748B;labelBackgroundColor=#FFFFFF;dashed=1;" edge="1" parent="1" source="mobile-card" target="auth-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Web to Auth -->
+        <mxCell id="e-web-auth" value="auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.15;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;strokeColor=#64748B;strokeWidth=1.5;fontSize=10;fontColor=#64748B;labelBackgroundColor=#FFFFFF;dashed=1;" edge="1" parent="1" source="web-card" target="auth-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Mobile to Functions -->
+        <mxCell id="e-mob-fn" value="job submit · sync" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;strokeColor=#1A365D;strokeWidth=2;fontSize=10;fontColor=#1A365D;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="mobile-card" target="fn-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Web to Functions -->
+        <mxCell id="e-web-fn" value="approve · export" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;strokeColor=#1A365D;strokeWidth=2;fontSize=10;fontColor=#1A365D;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="web-card" target="fn-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Web to Firestore direct (listeners) -->
+        <mxCell id="e-web-fs" value="realtime listeners" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;strokeColor=#F59E0B;strokeWidth=2;fontSize=10;fontColor=#92400E;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="web-card" target="fs-card">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="640" />
+              <mxPoint x="730" y="640" />
+              <mxPoint x="730" y="403" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Mobile to Firestore (offline SDK) -->
+        <mxCell id="e-mob-fs" value="offline SDK · realtime" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.85;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;strokeColor=#F59E0B;strokeWidth=2;fontSize=10;fontColor=#92400E;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="mobile-card" target="fs-card">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="395" />
+              <mxPoint x="750" y="395" />
+              <mxPoint x="750" y="287" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Mobile to Storage -->
+        <mxCell id="e-mob-storage" value="photos upload" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.9;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#1A365D;strokeWidth=1.5;fontSize=10;fontColor=#1A365D;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="mobile-card" target="storage-card">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="408" />
+              <mxPoint x="730" y="408" />
+              <mxPoint x="730" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Functions to Firestore -->
+        <mxCell id="e-fn-fs" value="read / write" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#92400E;strokeWidth=2;fontSize=10;fontColor=#92400E;labelBackgroundColor=#FFFFFF;startArrow=classic;startFill=1;" edge="1" parent="1" source="fn-card" target="fs-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Functions to Storage -->
+        <mxCell id="e-fn-storage" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.85;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#92400E;strokeWidth=1.5;dashed=1;" edge="1" parent="1" source="fn-card" target="storage-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- GitHub to Actions -->
+        <mxCell id="e-gh-ga" value="push / PR" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#0F766E;strokeWidth=2;fontSize=10;fontColor=#0F766E;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="gh-card" target="ga-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Dev to GitHub -->
+        <mxCell id="e-dev-gh" value="commit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#0F766E;strokeWidth=1.5;fontSize=10;fontColor=#0F766E;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="dev-actor" target="gh-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Actions to Hosting (deploy) -->
+        <mxCell id="e-ga-host" value="deploy" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#F59E0B;strokeWidth=2.5;fontSize=10;fontStyle=1;fontColor=#92400E;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="ga-card" target="hosting-card">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1230" y="565" />
+              <mxPoint x="1230" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Actions to Functions (deploy) -->
+        <mxCell id="e-ga-fn" value="deploy" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.7;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#F59E0B;strokeWidth=2.5;fontSize=10;fontStyle=1;fontColor=#92400E;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="ga-card" target="fn-card">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1220" y="619" />
+              <mxPoint x="1220" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- LEGEND -->
+        <mxCell id="legend-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1040" width="1480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" value="LEGEND" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;fontColor=#64748B;letterSpacing=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1045" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-1" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#1A365D;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="1060" as="sourcePoint" />
+            <mxPoint x="200" y="1060" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-1-l" value="API call (HTTPS)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="210" y="1050" width="120" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-2" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#64748B;strokeWidth=1.5;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="1060" as="sourcePoint" />
+            <mxPoint x="380" y="1060" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-2-l" value="Auth flow" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#64748B;" vertex="1" parent="1">
+          <mxGeometry x="390" y="1050" width="80" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-3" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#F59E0B;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="1060" as="sourcePoint" />
+            <mxPoint x="520" y="1060" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-3-l" value="Firestore realtime / data sync" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1050" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-4" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#F59E0B;strokeWidth=2.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="720" y="1060" as="sourcePoint" />
+            <mxPoint x="760" y="1060" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-4-l" value="CD deployment" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="770" y="1050" width="120" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-5" value="Must req." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#1A365D;fontSize=9;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="900" y="1052" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-6" value="Cloud component" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=9;fontColor=#92400E;" vertex="1" parent="1">
+          <mxGeometry x="980" y="1052" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-7" value="DevOps stage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDFA;strokeColor=#0F766E;fontSize=9;fontColor=#0F766E;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="1052" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-version" value="Version 1.0 · 26 May 2026" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#94A3B8;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="1050" width="190" height="22" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
